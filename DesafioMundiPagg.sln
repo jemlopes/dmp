@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioMundiPagg", "DesafioMundiPagg\DesafioMundiPagg.csproj", "{FB2EA373-9B39-4B97-8CEB-9EA9974F0D9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioMundipagg", "DesafioMundiPagg\DesafioMundipagg.csproj", "{FB2EA373-9B39-4B97-8CEB-9EA9974F0D9F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4B84D5AA-278C-448E-8585-2322F97AD163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioMundPaggTests", "..\DesafioMundPagg-Tests\DesafioMundPaggTests.csproj", "{353024CE-3C9D-46A8-91BC-E3949C1C747B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioMundPaggTests", "..\DesafioMundPagg-Tests\DesafioMundPaggTests.csproj", "{353024CE-3C9D-46A8-91BC-E3949C1C747B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FB2EA373-9B39-4B97-8CEB-9EA9974F0D9F} = {FB2EA373-9B39-4B97-8CEB-9EA9974F0D9F}
 	EndProjectSection
