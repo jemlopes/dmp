@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DesafioMundiPagg.Services;
+using DesafioMundiPagg.Models;
 
 namespace DesafioMundiPagg.Controllers
 {
@@ -21,14 +22,20 @@ namespace DesafioMundiPagg.Controllers
         [HttpPost]
         public IActionResult Translate(string statecode, [FromBody] string content)
         {
-            if (!_service.TryParse(content))
+            Result result = null;
+            if (!_service.ValidateInput(content))
             {
-                return BadRequest();
+                return BadRequest("Request invalido");
             }
-            return Ok("Teste");
+
+            try
+            {
+                result = _service.ProcessMessage(statecode, content);
+            } catch 
+            {
+                return BadRequest("Arquivo com formato invalido");
+            }
+            return Ok(result);
         }
-
-
-
     }
 }

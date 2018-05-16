@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesafioMundiPagg.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +9,21 @@ namespace DesafioMundiPagg.Services
     public class MessagingService : IMessagingService
     {
 
-        public string ProcessMessage(string identifier, string content)
+        public Result ProcessMessage(string identifier, string content)
         {
-            return "string";
+            Result result = null;
+            //Define tipo de request
+
+            try
+            {
+
+
+            } catch (InvalidCastException ex)
+            {
+                throw ex;
+            }
+
+            return result;
         }
 
 
@@ -29,10 +42,7 @@ namespace DesafioMundiPagg.Services
             return "string";
         }
 
-
-
-
-        public bool TryParse(string content)
+        public bool ValidateInput(string content)
         {
             if (content == null)
             {
@@ -41,5 +51,5 @@ namespace DesafioMundiPagg.Services
             return true;
         }
 
-    }
+     }
 }

@@ -1,8 +1,10 @@
-﻿namespace DesafioMundiPagg.Services
+﻿using DesafioMundiPagg.Models;
+
+namespace DesafioMundiPagg.Services
 {
     public interface IMessagingService
     {
-        string ProcessMessage(string identifier, string content);
-        bool TryParse(string content);
+        Result ProcessMessage(string identifier, string content);
+        bool ValidateInput(string content);
     }
 }
