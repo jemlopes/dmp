@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DesafioMundiPagg.Models;
-using DesafioMundiPagg.Services;
+﻿using DesafioMundipagg.Models;
+using DesafioMundipagg.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DesafioMundiPagg
+namespace DesafioMundipagg
 {
     public class Startup
     {
@@ -30,6 +26,8 @@ namespace DesafioMundiPagg
                 options.UseSqlite(Configuration.GetConnectionString("SqliteConnectionString"))
             );
 
+            services.AddScoped<IMessagingRepository, MessagingRepository>();
+            services.AddScoped<ITemplateService, TemplateService>();
 
             services.AddTransient<IMessagingService, MessagingService>();
         }

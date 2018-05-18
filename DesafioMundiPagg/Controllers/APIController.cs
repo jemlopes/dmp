@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DesafioMundiPagg.Services;
-using DesafioMundiPagg.Models;
+using DesafioMundipagg.Services;
+using DesafioMundipagg.Models;
 
-namespace DesafioMundiPagg.Controllers
+namespace DesafioMundipagg.Controllers
 {
     [Produces("application/json")]
     [Route("api/censo/{statecode}")]

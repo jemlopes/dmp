@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DesafioMundiPagg.Models;
+using DesafioMundipagg.Models;
 
-namespace DesafioMundiPagg.Controllers
+namespace DesafioMundipagg.Controllers
 {
     public class StatesController : Controller
     {
@@ -21,7 +21,7 @@ namespace DesafioMundiPagg.Controllers
         // GET: States
         public async Task<IActionResult> Index()
         {
-            return View(await _context.State.ToListAsync());
+            return View(await _context.States.ToListAsync());
         }
 
         // GET: States/Details/5
@@ -32,7 +32,7 @@ namespace DesafioMundiPagg.Controllers
                 return NotFound();
             }
 
-            var state = await _context.State
+            var state = await _context.States
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (state == null)
             {
@@ -72,7 +72,7 @@ namespace DesafioMundiPagg.Controllers
                 return NotFound();
             }
 
-            var state = await _context.State.SingleOrDefaultAsync(m => m.Id == id);
+            var state = await _context.States.SingleOrDefaultAsync(m => m.Id == id);
             if (state == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace DesafioMundiPagg.Controllers
                 return NotFound();
             }
 
-            var state = await _context.State
+            var state = await _context.States
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (state == null)
             {
@@ -138,15 +138,15 @@ namespace DesafioMundiPagg.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var state = await _context.State.SingleOrDefaultAsync(m => m.Id == id);
-            _context.State.Remove(state);
+            var state = await _context.States.SingleOrDefaultAsync(m => m.Id == id);
+            _context.States.Remove(state);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StateExists(int id)
         {
-            return _context.State.Any(e => e.Id == id);
+            return _context.States.Any(e => e.Id == id);
         }
     }
 }

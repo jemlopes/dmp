@@ -1,12 +1,12 @@
-﻿using DesafioMundiPagg.Services;
+﻿using DesafioMundipagg.Services;
 using NUnit.Framework;
 using System;
 using Moq;
-using DesafioMundiPagg.Models;
-using DesafioMundiPagg.Controllers;
+using DesafioMundipagg.Models;
+using DesafioMundipagg.Controllers;
 using System.Collections.Generic;
 
-namespace DesafioMundPagg_Tests
+namespace DesafioMundipaggTests
 {
     [TestFixture]
     public class APIControllerTest

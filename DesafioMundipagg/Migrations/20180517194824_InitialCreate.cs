@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace DesafioMundiPagg.Migrations
+namespace DesafioMundipagg.Migrations
 {
     public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "State",
+                name: "States",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,7 +19,7 @@ namespace DesafioMundiPagg.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_State", x => x.Id);
+                    table.PrimaryKey("PK_States", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,7 +41,7 @@ namespace DesafioMundiPagg.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "State");
+                name: "States");
 
             migrationBuilder.DropTable(
                 name: "Templates");

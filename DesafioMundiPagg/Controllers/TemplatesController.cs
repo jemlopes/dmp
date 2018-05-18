@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DesafioMundiPagg.Models;
+using DesafioMundipagg.Models;
 
-namespace DesafioMundiPagg.Controllers
+namespace DesafioMundipagg.Controllers
 {
     public class TemplatesController : Controller
     {

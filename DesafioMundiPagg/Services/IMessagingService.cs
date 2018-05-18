@@ -1,6 +1,6 @@
-﻿using DesafioMundiPagg.Models;
+﻿using DesafioMundipagg.Models;
 
-namespace DesafioMundiPagg.Services
+namespace DesafioMundipagg.Services
 {
     public interface IMessagingService
     {

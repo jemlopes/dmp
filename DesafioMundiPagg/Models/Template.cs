@@ -1,4 +1,4 @@
-﻿namespace DesafioMundiPagg.Models
+﻿namespace DesafioMundipagg.Models
 {
     public class Template
     {

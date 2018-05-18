@@ -1,0 +1,89 @@
+#template
+#
+# input: Tipo de input se XML ou JSON
+# Nota: Quando o arquivo de input nao possuir valor de nome, utilizar "-" para ignorar
+# listaCidades: identificador do campo que define uma colecao de cidades 
+#   cidade: Nome do campo do identificador de cidade
+#   nomeCidade: Nome do campo do nome da cidade
+#   habitantesCidade: Nome do campo de habitantes da cidade
+#   listaBairros: Nome do identificador que marca a coleção de bairros de cada cidade
+#     bairro: Nome do campo do identificador de bairro
+#     nomeBairro: Nome do campo do nome de um bairro
+#     habitantesBairro: Nome do campo de habitantes de um bairro
+#     regiaoBairro: Nome do campo de regiao de um bairro
+#
+#
+#
+# Template de exemplo (XML) . Para o arquivo de entrada:
+# <corpo> 
+#    <cidade> 
+#        <nome> Rio de Janeiro</nome>
+#        <populacao>10345678</populacao>
+#        <bairros>
+#            <bairro> 
+#                <nome> Tijuca</nome>
+#                <regiao>Zona Norte</regiao>
+#                <populacao >135678</populacao>
+#            <bairro>
+#                <nome> Botafogo</nome>
+#                <regiao>Zona Sul</regiao>
+#                <populacao>105711</populacao>
+#            </bairro>
+#        </bairros> 
+#    </cidade> 
+# </corpo> 
+#
+# O template a ser usado deverá ser:
+# input: xml
+# listaCidades: corpo
+#   cidade: cidade
+#   nomeCidade: nome
+#   habitantesCidade: populacao
+#   listaBairros: bairros
+#     bairro: bairro
+#     nomeBairro: nome
+#     regiaoBairro: regiao
+#     habitantesBairro: populacao
+#
+# Template de exemplo (JSON)
+#
+#
+#{
+#    "cities ":[ 
+#    {
+#        "name":"Rio Branco", 
+#        "population":576589,
+#        "neighborhoods":[
+#                {
+#                    "name": "Habitasa",
+#                    "population":7503
+#                }
+#            ]
+#        }
+#    ]
+# }
+# O template a ser usado deverá ser:
+# input: json
+# listaCidades: cities
+#   cidade: -
+#   nomeCidade: name
+#   habitantesCidade: population
+#   listaBairros: neighborhoods
+#     bairro: -
+#     nomeBairro: name
+#     regiaoBairro: -
+#     habitantesBairro: population
+#
+#
+
+input: <xml / json>
+listaCidades: <cidades>
+  cidade: <cidade>
+  nomeCidade: <nome>
+  habitantesCidade: <habitantes>
+  listaBairros: <bairros>
+    bairro: <bairro>
+    nomeBairro: <nome>
+    regiaoBairro: <regiao>
+    habitantesBairro: <habitantes>
+    
