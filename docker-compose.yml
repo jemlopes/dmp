@@ -2,7 +2,7 @@ version: '3'
 
 services:
   desafiomundipagg:
-    image: desafiomundipagg
+    image: jlopesdocker/desafiomundipagg
     build:
       context: .
-      dockerfile: DesafioMundiPagg/Dockerfile
+      dockerfile: DesafioMundipagg/Dockerfile

@@ -1,16 +1,19 @@
-#template
+#Templates
+# Os templates podem ser reutilizados para quantos estados forem precisos, para nao ser necessaria a criacao de templates repetidos caso haja estados que utizem o mesmo template
+# Na api / painel de cadastro de estados é possivel selecionar o codigo da template a ser utilizada para o estado escolhido.
+# Nota: Quando o arquivo de input nao possuir valor de identificador de cidade ou listaCidades , utilizar "-" para ignorar
 #
+# Campos:::
 # input: Tipo de input se XML ou JSON
-# Nota: Quando o arquivo de input nao possuir valor de nome, utilizar "-" para ignorar
 # listaCidades: identificador do campo que define uma colecao de cidades 
-#   cidade: Nome do campo do identificador de cidade
-#   nomeCidade: Nome do campo do nome da cidade
-#   habitantesCidade: Nome do campo de habitantes da cidade
-#   listaBairros: Nome do identificador que marca a coleção de bairros de cada cidade
-#     bairro: Nome do campo do identificador de bairro
-#     nomeBairro: Nome do campo do nome de um bairro
-#     habitantesBairro: Nome do campo de habitantes de um bairro
-#     regiaoBairro: Nome do campo de regiao de um bairro
+# cidade: Nome do campo do identificador de cidade
+# nomeCidade: Nome do campo do nome da cidade
+# habitantesCidade: Nome do campo de habitantes da cidade
+# listaBairros: Nome do identificador que marca a coleção de bairros de cada cidade
+# bairro: Nome do campo do identificador de bairro
+# nomeBairro: Nome do campo do nome de um bairro
+# habitantesBairro: Nome do campo de habitantes de um bairro
+# regiaoBairro: Nome do campo de regiao de um bairro
 #
 #
 #
@@ -36,14 +39,14 @@
 # O template a ser usado deverá ser:
 # input: xml
 # listaCidades: corpo
-#   cidade: cidade
-#   nomeCidade: nome
-#   habitantesCidade: populacao
-#   listaBairros: bairros
-#     bairro: bairro
-#     nomeBairro: nome
-#     regiaoBairro: regiao
-#     habitantesBairro: populacao
+# cidade: cidade
+# nomeCidade: nome
+# habitantesCidade: populacao
+# listaBairros: bairros
+# bairro: bairro
+# nomeBairro: nome
+# regiaoBairro: regiao
+# habitantesBairro: populacao
 #
 # Template de exemplo (JSON)
 #
@@ -65,25 +68,25 @@
 # O template a ser usado deverá ser:
 # input: json
 # listaCidades: cities
-#   cidade: -
-#   nomeCidade: name
-#   habitantesCidade: population
-#   listaBairros: neighborhoods
-#     bairro: -
-#     nomeBairro: name
-#     regiaoBairro: -
-#     habitantesBairro: population
+# cidade: 
+# nomeCidade: name
+# habitantesCidade: population
+# listaBairros: neighborhoods
+# bairro: 
+# nomeBairro: name
+# regiaoBairro: 
+# habitantesBairro: population
 #
 #
-
+---
 input: <xml / json>
 listaCidades: <cidades>
-  cidade: <cidade>
-  nomeCidade: <nome>
-  habitantesCidade: <habitantes>
-  listaBairros: <bairros>
-    bairro: <bairro>
-    nomeBairro: <nome>
-    regiaoBairro: <regiao>
-    habitantesBairro: <habitantes>
+cidade: <cidade>
+nomeCidade: <nome>
+habitantesCidade: <habitantes>
+listaBairros: <bairros>
+bairro: <bairro>
+nomeBairro: <nome>
+regiaoBairro: <regiao>
+habitantesBairro: <habitantes>
     

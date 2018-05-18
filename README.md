@@ -22,25 +22,27 @@ Testes de caixa branca: SOAPUI 5.4
 ### Fazendo o build
  
  O Arquivo Dockerfile encontra-se no diretorio /DesafioMundipagg/DesafioMundipagg 
- Para realizar o build, a partir deste diretorio utilizar o comando:
- ```
- docker build -t jemlopes/desafiomundipagg:1.0.0 .
- ```
- No diretorio da solucao /DesafioMundipagg tambem há o docker-compose para o projeto que tambem pode ser utilizado.
+ Para realizar o build, a partir do diretorio /DesafioMundipagg
+ 
+ Pela IDE é possivel também gerar a imagem (projeto docker-compose) , apenas realizando o build do projeto.
+ O arquivo docker-compose.yml é utilizado nesse caso. 
+
+
+
 
 ### Repositorio
 
 Para baixar a imagem do repositorio, basta usar o comando:
 
 ```
-docker pull rocker/versejemlopes/desafiomundipagg
+docker pull jlopesdocker/desafiomundipagg
 ```
 
 
 ### Rodando a imagem
 
 ```
-docker run -d -p 9005:9005 jemlopes/desafiomundipagg
+docker run -d -p 9005:80 jlopesdocker/desafiomundipagg
 ```
 
 ## Testes
@@ -67,8 +69,29 @@ Onde {estado} é a UF
 http://localhost:9005/api/censo/AC
 
 Request:
+Content-Type: application/json
 
-
+{
+    "cidades":[ 
+        {
+        "nome": "Rio Branco", 
+        "populacao":576589,
+        "bairros":[
+                {
+                    "nome": "Habitasa",
+                    "populacao":7503
+                },
+                {
+                    "nome": "Bairro 2",
+                    "populacao":2503
+                }
+            ]
+        }
+    ],
+    "teste": {
+        "cidades":[ { "nome": "teste" , "populacao" :1000 , "bairros": [{"nome": "b1" , "populacao":1}]} ]
+    }
+ }
 
 ```
 
