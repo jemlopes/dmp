@@ -9,7 +9,7 @@ A API deverá aceitar templates e executa-los de forma dinamica.
 
 A API foi desenvolvida em .net Core 2.0
 
-IDE Utilizada: Visual Studio 2017 CODE
+IDE Utilizada: Visual Studio 2017 Community Edition
 
 Testes Unitarios: nUnit 3.1
 
@@ -17,8 +17,31 @@ Testes de caixa branca: SOAPUI 5.4
 
 
 
-## Rodando a imagem docker
+## Docker
 
+### Fazendo o build
+ 
+ O Arquivo Dockerfile encontra-se no diretorio /DesafioMundipagg/DesafioMundipagg 
+ Para realizar o build, a partir deste diretorio utilizar o comando:
+ ```
+ docker build -t jemlopes/desafiomundipagg:1.0.0 .
+ ```
+ No diretorio da solucao /DesafioMundipagg tambem há o docker-compose para o projeto que tambem pode ser utilizado.
+
+### Repositorio
+
+Para baixar a imagem do repositorio, basta usar o comando:
+
+```
+docker pull rocker/versejemlopes/desafiomundipagg
+```
+
+
+### Rodando a imagem
+
+```
+docker run -d -p 9005:9005 jemlopes/desafiomundipagg
+```
 
 ## Testes
 
@@ -113,23 +136,23 @@ Campos:
 
  ### Template de exemplo (XML) . Para o arquivo de entrada:
 ```
- &lt;corpo&gt; 
-    &lt;cidade&gt; 
-        &lt;nome&gt; Rio de Janeiro&lt;/nome&gt;
-        &lt;populacao&gt;10345678&lt;/populacao&gt;
-        &lt;bairros&gt;
-            &lt;bairro&gt; 
-                &lt;nome&gt; Tijuca&lt;/nome&gt;
-                &lt;regiao&gt;Zona Norte&lt;/regiao&gt;
-                &lt;populacao &gt;135678&lt;/populacao&gt;
-            &lt;bairro&gt;
-                &lt;nome&gt; Botafogo&lt;/nome&gt;
-                &lt;regiao&gt;Zona Sul&lt;/regiao&gt;
-                &lt;populacao&gt;105711&lt;/populacao&gt;
-            &lt;/bairro&gt;
-        &lt;/bairros&gt; 
-    &lt;/cidade&gt; 
- &lt;/corpo&gt; 
+ <corpo> 
+    <cidade> 
+        <nome> Rio de Janeiro</nome>
+        <populacao>10345678</populacao>
+        <bairros>
+            <bairro> 
+                <nome> Tijuca</nome>
+                <regiao>Zona Norte</regiao>
+                <populacao >135678</populacao>
+            <bairro>
+                <nome> Botafogo</nome>
+                <regiao>Zona Sul</regiao>
+                <populacao>105711</populacao>
+            </bairro>
+        </bairros> 
+    </cidade> 
+ </corpo> 
 
  O template a ser usado deverá ser:
  input: xml
@@ -177,16 +200,17 @@ Campos:
 ```
 	 
 ## Modelo do Template:
+```
 ---
-input: &lt;xml / json&gt;
-listaCidades: &lt;cidades&gt;
-cidade: &lt;cidade&gt;
-nomeCidade: &lt;nome&gt;
-habitantesCidade: &lt;habitantes&gt;
-listaBairros: &lt;bairros&gt;
-bairro: &lt;bairro&gt;
-nomeBairro: &lt;nome&gt;
-regiaoBairro: &lt;regiao&gt;
-habitantesBairro: &lt;habitantes&gt;
+input: <xml / json>
+listaCidades: <cidades>
+cidade: <cidade>
+nomeCidade: <nome>
+habitantesCidade: <habitantes>
+listaBairros: <bairros>
+bairro: <bairro>
+nomeBairro: <nome>
+regiaoBairro: <regiao>
+habitantesBairro: <habitantes>
     
 ```
