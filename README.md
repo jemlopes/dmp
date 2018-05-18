@@ -15,31 +15,35 @@ Testes Unitarios: nUnit 3.1
 
 Testes de caixa branca: SOAPUI 5.4
 
-```
-Give examples
-```
+
 
 ## Rodando a imagem docker
 
-```
 
 ##Utilizando a API
 
+
+
+
+
 ###Testes
 
-Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para testes das diversas APIs
+Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para testes das diversas APIs, configuracoes para Swagger
+e uma aquivo Jmeter para realizar o teste de todas as operacoes disponiveis
 
 
 ###Entrada de dados
 
 
-###Cadastro de templates
+###Cadastro de templates e estados
 
+ Sao disponibilizadas duas APIs, uma para cadastro de templates e outra para cadastro de Estados.
+ Os templates podem ser reutilizados para quantos estados forem precisos, para nao ser necessaria a criacao de templates repetidos caso haja estados que utizem o mesmo template
+ Na api / painel de cadastro de estados é possivel selecionar o codigo da template a ser utilizada para o estado escolhido.
 
 ###Templates
 
- Os templates podem ser reutilizados para quantos estados forem precisos, para nao ser necessaria a criacao de templates repetidos caso haja estados que utizem o mesmo template
- Na api / painel de cadastro de estados é possivel selecionar o codigo da template a ser utilizada para o estado escolhido.
+
  Nota: Quando o arquivo de input nao possuir valor de identificador de cidade ou listaCidades , utilizar "-" para ignorar
 
  Campos:::
@@ -56,8 +60,8 @@ Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para teste
      regiaoBairro: Nome do campo de regiao de um bairro
 
 
-
- Template de exemplo (XML) . Para o arquivo de entrada:
+ ###Template de exemplo (XML) . Para o arquivo de entrada:
+...
  <corpo> 
     <cidade> 
         <nome> Rio de Janeiro</nome>
@@ -87,9 +91,10 @@ Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para teste
      nomeBairro: nome
      regiaoBairro: regiao
      habitantesBairro: populacao
+...
 
 ### Template de exemplo (JSON)
-
+...
 
 {
     "cities ":[ 
@@ -117,6 +122,10 @@ Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para teste
      regiaoBairro: -
      habitantesBairro: population
 
+
+...
+	 
+###Modelo do Template:
 ---
 input: <xml / json>
 codigo: <codigo-template>
@@ -130,3 +139,4 @@ nomeBairro: <nome>
 regiaoBairro: <regiao>
 habitantesBairro: <habitantes>
     
+...
