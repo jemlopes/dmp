@@ -20,13 +20,13 @@ Testes de caixa branca: SOAPUI 5.4
 ## Rodando a imagem docker
 
 
-##Testes
+## Testes
 
 Alem dos testes unitarios, a pasta exemplos possui os arquivos SOAPUI para testes das diversas APIs, configuracoes para Swagger
 e uma aquivo Jmeter para realizar o teste de todas as operacoes disponiveis
 
 
-##API - Entrada de dados
+## API - Entrada de dados
 
 A API suporta dois tipos de content-type:
 * application/json
@@ -34,66 +34,66 @@ A API suporta dois tipos de content-type:
 
 O Endpoint é 
 
-http://<server>:<porta: default 9005>/api/censo/{estado}
+http://&lt;server&gt;:&lt;porta: default 9005&gt;/api/censo/{estado}
 
 Onde {estado} é a UF 
 
-###Exemplos
+### Exemplos
 
-...
+```
 http://localhost:9005/api/censo/AC
 
 Request:
 
 
 
-...
+```
 
 
 
-##Cadastro de templates e estados
+## Cadastro de templates e estados
 
  Sao disponibilizadas duas APIs, uma para cadastro de templates e outra para cadastro de Estados.
  Os templates podem ser reutilizados para quantos estados forem precisos, para nao ser necessaria a criacao de templates repetidos caso haja estados que utizem o mesmo template
  Na api / painel de cadastro de estados é possivel selecionar o codigo da template a ser utilizada para o estado escolhido.
 
-##Utilizando interface Web
+## Utilizando interface Web
 
-Basta entrar na interface web (http://<server>:<porta>/)
+Basta entrar na interface web (http://&lt;server&gt;:&lt;porta&gt;/)
 
-* Para Estados: http://<server>:<porta>/states
-* Para Templates: http://<server>:<porta>/templates
+* Para Estados: http://&lt;server&gt;:&lt;porta&gt;/states
+* Para Templates: http://&lt;server&gt;:&lt;porta&gt;/templates
 
-##Utilizando servicos rest
+## Utilizando servicos rest
 
-###Modelo Json da template para interface REST
+### Modelo Json da template para interface REST
 
-...
+```
       {
       "id": 1,
       "code": "0001",
       "content": "---\r\ninput: json\r\nlistaCidades: cidades\r\ncidade: cidade\r\nnomeCidade: nome\r\nhabitantesCidade: populacao\r\nlistaBairros: bairros\r\nbairro: \r\nnomeBairro: nome\r\nregiaoBairro: \r\nhabitantesBairro: populacao",
       "type": 0
    }
-...
+```
 Campos:
- *id  : Auto-gerado pelo sistema
- *code: Codigo amigavel, usado pelo objeto Estado para associa-lo a um template (Os templates podem ser reutilizados em multiplos estados) 
- *content: Conteudo da template de transformacao de mensagens
+ * id  : Auto-gerado pelo sistema
+ * code: Codigo amigavel, usado pelo objeto Estado para associa-lo a um template (Os templates podem ser reutilizados em multiplos estados) 
+ * content: Conteudo da template de transformacao de mensagens
  O campo content (conteudo) está melhor descrito abaixo. 
  
-###Modelo de Json de estado para interface REST
+### Modelo de Json de estado para interface REST
 
 {
    "id": 1,
    "stateCode": "AC",
    "templateCode": "0001"
 }
- *id  : Auto-gerado pelo sistema
- *stateCode: UF
- *templateCode: Codigo amigavel, usado pelo objeto Estado para associa-lo a um template (Os templates podem ser reutilizados em multiplos estados)  
+ * id  : Auto-gerado pelo sistema
+ * stateCode: UF
+ * templateCode: Codigo amigavel, usado pelo objeto Estado para associa-lo a um template (Os templates podem ser reutilizados em multiplos estados)  
   
-##Templates
+## Templates
 
 
  Nota: Quando o arquivo de input nao possuir valor de identificador de cidade ou listaCidades , deixar campo em branco para ignorar
@@ -111,25 +111,25 @@ Campos:
  regiaoBairro: Nome do campo de regiao de um bairro
 
 
- ###Template de exemplo (XML) . Para o arquivo de entrada:
-...
- <corpo> 
-    <cidade> 
-        <nome> Rio de Janeiro</nome>
-        <populacao>10345678</populacao>
-        <bairros>
-            <bairro> 
-                <nome> Tijuca</nome>
-                <regiao>Zona Norte</regiao>
-                <populacao >135678</populacao>
-            <bairro>
-                <nome> Botafogo</nome>
-                <regiao>Zona Sul</regiao>
-                <populacao>105711</populacao>
-            </bairro>
-        </bairros> 
-    </cidade> 
- </corpo> 
+ ### Template de exemplo (XML) . Para o arquivo de entrada:
+```
+ &lt;corpo&gt; 
+    &lt;cidade&gt; 
+        &lt;nome&gt; Rio de Janeiro&lt;/nome&gt;
+        &lt;populacao&gt;10345678&lt;/populacao&gt;
+        &lt;bairros&gt;
+            &lt;bairro&gt; 
+                &lt;nome&gt; Tijuca&lt;/nome&gt;
+                &lt;regiao&gt;Zona Norte&lt;/regiao&gt;
+                &lt;populacao &gt;135678&lt;/populacao&gt;
+            &lt;bairro&gt;
+                &lt;nome&gt; Botafogo&lt;/nome&gt;
+                &lt;regiao&gt;Zona Sul&lt;/regiao&gt;
+                &lt;populacao&gt;105711&lt;/populacao&gt;
+            &lt;/bairro&gt;
+        &lt;/bairros&gt; 
+    &lt;/cidade&gt; 
+ &lt;/corpo&gt; 
 
  O template a ser usado deverá ser:
  input: xml
@@ -142,10 +142,10 @@ Campos:
  nomeBairro: nome
  regiaoBairro: regiao
  habitantesBairro: populacao
-...
+```
 
 ### Template de exemplo (JSON)
-...
+```
 
 {
     "cities ":[ 
@@ -174,19 +174,19 @@ Campos:
  habitantesBairro: population
 
 
-...
+```
 	 
-##Modelo do Template:
+## Modelo do Template:
 ---
-input: <xml / json>
-listaCidades: <cidades>
-cidade: <cidade>
-nomeCidade: <nome>
-habitantesCidade: <habitantes>
-listaBairros: <bairros>
-bairro: <bairro>
-nomeBairro: <nome>
-regiaoBairro: <regiao>
-habitantesBairro: <habitantes>
+input: &lt;xml / json&gt;
+listaCidades: &lt;cidades&gt;
+cidade: &lt;cidade&gt;
+nomeCidade: &lt;nome&gt;
+habitantesCidade: &lt;habitantes&gt;
+listaBairros: &lt;bairros&gt;
+bairro: &lt;bairro&gt;
+nomeBairro: &lt;nome&gt;
+regiaoBairro: &lt;regiao&gt;
+habitantesBairro: &lt;habitantes&gt;
     
-...
+```
