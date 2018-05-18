@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DesafioMundipagg.Services;
 using DesafioMundipagg.Models;
+using System.IO;
+using System.Text;
 
 namespace DesafioMundipagg.Controllers
 {
@@ -20,8 +22,14 @@ namespace DesafioMundipagg.Controllers
         }
 
         [HttpPost]
-        public IActionResult Translate(string statecode, [FromBody] string content)
+        public IActionResult Translate(string statecode)
         {
+            string content = null;
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                content = reader.ReadToEnd();
+            }
+
             Result result = null;
             if (!_service.ValidateInput(content))
             {
@@ -31,10 +39,15 @@ namespace DesafioMundipagg.Controllers
             try
             {
                 result = _service.ProcessMessage(statecode, content);
-            } catch 
+            } catch (YamlDotNet.Core.SyntaxErrorException)
+            {
+                return BadRequest("Template mal formatada");
+            }
+            catch(Exception)
             {
                 return BadRequest("Arquivo com formato invalido");
             }
+
             return Ok(result);
         }
     }

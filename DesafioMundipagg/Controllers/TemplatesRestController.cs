@@ -10,7 +10,7 @@ using DesafioMundipagg.Models;
 namespace DesafioMundipagg.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Templates")]
+    [Route("api/templates")]
     public class TemplatesRestController : Controller
     {
         private readonly TemplateContext _context;
@@ -20,14 +20,14 @@ namespace DesafioMundipagg.Controllers
             _context = context;
         }
 
-        // GET: api/Templates
+        // GET: api/templates
         [HttpGet]
         public IEnumerable<Template> GetTemplates()
         {
             return _context.Templates;
         }
 
-        // GET: api/Templates/5
+        // GET: api/templates/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTemplate([FromRoute] int id)
         {
@@ -46,7 +46,7 @@ namespace DesafioMundipagg.Controllers
             return Ok(template);
         }
 
-        // PUT: api/Templates/5
+        // PUT: api/templates/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTemplate([FromRoute] int id, [FromBody] Template template)
         {
@@ -58,6 +58,11 @@ namespace DesafioMundipagg.Controllers
             if (id != template.Id)
             {
                 return BadRequest();
+            }
+
+            if (IsCodeDuplicated(id , template.Code))
+            {
+                return BadRequest("Code duplicado");
             }
 
             _context.Entry(template).State = EntityState.Modified;
@@ -81,7 +86,7 @@ namespace DesafioMundipagg.Controllers
             return NoContent();
         }
 
-        // POST: api/Templates
+        // POST: api/templates
         [HttpPost]
         public async Task<IActionResult> PostTemplate([FromBody] Template template)
         {
@@ -90,13 +95,18 @@ namespace DesafioMundipagg.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (IsDuplicate(template.Code))
+            {
+                return BadRequest("Code duplicado");
+            }
+
             _context.Templates.Add(template);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTemplate", new { id = template.Id }, template);
         }
 
-        // DELETE: api/Templates/5
+        // DELETE: api/templates/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTemplate([FromRoute] int id)
         {
@@ -121,5 +131,19 @@ namespace DesafioMundipagg.Controllers
         {
             return _context.Templates.Any(e => e.Id == id);
         }
+
+
+        private bool IsDuplicate(string code)
+        {
+            return _context.Templates.Any(e => e.Code == code);
+        }
+
+        private bool IsCodeDuplicated(int id , string code)
+        {
+            return _context.Templates.Any(e => e.Code == code && e.Id != id);
+        }
+
+
+
     }
 }

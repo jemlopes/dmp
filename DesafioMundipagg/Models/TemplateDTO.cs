@@ -6,6 +6,7 @@ namespace DesafioMundipagg.Models
     public class TemplateDTO
     {
         public string Input { get; set; }
+        [YamlIgnore]
         public string Codigo { get; set; }
         public string ListaCidades { get; set; }
         public string Cidade { get; set; }

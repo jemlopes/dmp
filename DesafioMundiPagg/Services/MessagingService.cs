@@ -33,7 +33,7 @@ namespace DesafioMundipagg.Services
                         throw new NotImplementedException("Tipo de arquivo nao suportado");
                 }
             }
-            catch (Exception ex)
+            catch (YamlDotNet.Core.SyntaxErrorException ex)
             {
                 throw ex;
             }

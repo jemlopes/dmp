@@ -57,6 +57,11 @@ namespace DesafioMundipagg.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (IsDuplicate(template.Code))
+                {
+                    return BadRequest("Code duplicado");
+                }
+
                 _context.Add(template);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -94,6 +99,13 @@ namespace DesafioMundipagg.Controllers
 
             if (ModelState.IsValid)
             {
+
+                if (IsCodeDuplicated(id, template.Code))
+                {
+                    return BadRequest("Code duplicado");
+                }
+
+
                 try
                 {
                     _context.Update(template);
@@ -148,5 +160,17 @@ namespace DesafioMundipagg.Controllers
         {
             return _context.Templates.Any(e => e.Id == id);
         }
+
+        private bool IsDuplicate(string code)
+        {
+            return _context.Templates.Any(e => e.Code == code);
+        }
+
+        private bool IsCodeDuplicated(int id, string code)
+        {
+            return _context.Templates.Any(e => e.Code == code && e.Id != id);
+        }
+
+
     }
 }

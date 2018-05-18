@@ -1,28 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Desafio MundiPagg";
 }
+<br /><br />
+<h1>Utilizacao:</h1>
 
-Utilizacao:
+<h3>
+    API de entrada:
+</h3>
+    /api/censo/{estado}
+<br />
+    Onde estado é a UF (RJ,MG,AC, etc...)
+<br /><br />
+<h2>
+    Controle de templates
+</h2>
 
-API de entrada:
-/api/Inputs/{estado}
+        As Templates são criadas independentemente dos Estados que as utilizaram para permitir reutilização de templates,
+        Após a criação de template ela pode ser associada a quantos Estados forem necessários através da API de Estados (States)
+        ou pela interface Web
+<br />
+<h3>
+    API REST:
+</h3>
 
-Onde estado é a UF (RJ,MG,AC, etc...)
-
-Controle de templates
-
-As Templates são criadas independentemente dos Estados que as utilizaram para permitir reutilização de templates,
-Após a criação de template ela pode ser associada a quantos Estados forem necessários através da API de Estados (States)
-ou pela interface Web
-
-API:
-
-/api/Templates/{templateId}
-/api/States/{stateId}
+            /api/templates/{templateId}<br />
+            /api/states/{stateId}<br /><br />
 
 
-Web:
+<h3>Interface Web:</h3>
 
-/Templates
+            /templates<br />
 
-/States
+            /states<br /><br />

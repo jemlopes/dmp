@@ -10,7 +10,7 @@ using DesafioMundipagg.Models;
 namespace DesafioMundipagg.Controllers
 {
     [Produces("application/json")]
-    [Route("api/States")]
+    [Route("api/states")]
     public class StatesRestController : Controller
     {
         private readonly TemplateContext _context;
@@ -20,14 +20,14 @@ namespace DesafioMundipagg.Controllers
             _context = context;
         }
 
-        // GET: api/States
+        // GET: api/states
         [HttpGet]
         public IEnumerable<State> GetStates()
         {
             return _context.States;
         }
 
-        // GET: api/States/5
+        // GET: api/states/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetState([FromRoute] int id)
         {
@@ -46,7 +46,7 @@ namespace DesafioMundipagg.Controllers
             return Ok(state);
         }
 
-        // PUT: api/States/5
+        // PUT: api/states/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutState([FromRoute] int id, [FromBody] State state)
         {
@@ -81,7 +81,7 @@ namespace DesafioMundipagg.Controllers
             return NoContent();
         }
 
-        // POST: api/States
+        // POST: api/states
         [HttpPost]
         public async Task<IActionResult> PostState([FromBody] State state)
         {
@@ -96,7 +96,7 @@ namespace DesafioMundipagg.Controllers
             return CreatedAtAction("GetState", new { id = state.Id }, state);
         }
 
-        // DELETE: api/States/5
+        // DELETE: api/states/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteState([FromRoute] int id)
         {
